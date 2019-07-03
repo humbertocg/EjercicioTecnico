@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="EjercicioTecnico.Controls.EntryControl"
+             x:Name="control">
+    <ContentView.Content>
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <Label Text="{Binding Source={x:Reference control}, Path=TitleEntry}" HorizontalOptions="FillAndExpand"/>
+            <Entry Text="{Binding Source={x:Reference control}, Path=Data}" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
