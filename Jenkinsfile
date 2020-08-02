@@ -5,7 +5,7 @@ pipeline {
       agent any
       environment {
         PROJECT_NAME = 'EjercicioTecnico'
-        PATH = '/Library/Frameworks/Mono.framework/Versions/Current/Commands:$PATH'
+        PATH_Build = '/Library/Frameworks/Mono.framework/Versions/Current/Commands'
         APK_NAME = 'EjercicioTecnico'
         ANDROID_HOME = '/Users/humbertocg/Library/Developer/Xamarin/android-sdk-macosx'
         KEYSTORE_FILE = '/Users/humbertocg/cubesmart.keystore'
@@ -21,7 +21,7 @@ pipeline {
 
     stage('Restore nuget') {
       steps {
-        sh '$PATH/nuget restore'
+        sh '$PATH_Build/nuget restore'
       }
     }
 
@@ -29,13 +29,13 @@ pipeline {
       parallel {
         stage('Build iOS') {
           steps {
-            sh 'msbuild ${PROJECT_NAME}.sln /t:${PROJECT_NAME}_iOS /p:Configuration="Release" /p:BuildIpa=true /p:Platform="iPhone" /p:IpaPackageDir="$WORKSPACE/Builds" '
+            sh '$PATH_Build/msbuild ${PROJECT_NAME}.sln /t:${PROJECT_NAME}_iOS /p:Configuration="Release" /p:BuildIpa=true /p:Platform="iPhone" /p:IpaPackageDir="$WORKSPACE/Builds" '
           }
         }
 
         stage('Build Android') {
           steps {
-            sh 'msbuild ${PROJECT_NAME}.sln /t:${PROJECT_NAME}_Android /p:Configuration="Release" /p:AndroidBuildApplicationPackage=true'
+            sh '$PATH_Build/msbuild ${PROJECT_NAME}.sln /t:${PROJECT_NAME}_Android /p:Configuration="Release" /p:AndroidBuildApplicationPackage=true'
           }
         }
 
@@ -44,7 +44,7 @@ pipeline {
 
     stage('signing android') {
       steps {
-        sh '''arsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore $KEYSTORE_FILE -storepass $STORE_PASS -signedjar $SIGNED_APK $INPUT_APK $KEYSTORE_ALIAS  
+        sh '''jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore $KEYSTORE_FILE -storepass $STORE_PASS -signedjar $SIGNED_APK $INPUT_APK $KEYSTORE_ALIAS  
 $ANDROID_HOME/build-tools/29.0.2/zipalign -f -v 4 $SIGNED_APK $FINAL_APK'''
       }
     }
