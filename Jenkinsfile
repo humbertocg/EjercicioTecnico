@@ -20,6 +20,9 @@ pipeline {
     }
 
     stage('Restore nuget') {
+      environment {
+        PATH = '/Library/Frameworks/Mono.framework/Versions/Current/Commands:$PATH '
+      }
       steps {
         sh '$PATH/nuget restore'
       }
@@ -51,6 +54,6 @@ $ANDROID_HOME/build-tools/29.0.2/zipalign -f -v 4 $SIGNED_APK $FINAL_APK'''
 
   }
   environment {
-    Set_Variables = ''
+    PATH = '/Library/Frameworks/Mono.framework/Versions/Current/Commands:$PATH'
   }
 }
