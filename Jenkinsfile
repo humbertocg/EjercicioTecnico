@@ -21,7 +21,7 @@ pipeline {
 
     stage('Restore nuget') {
       steps {
-        sh '${env.PATH}/nuget restore'
+        sh '"${env.PATH}"/nuget restore'
       }
     }
 
