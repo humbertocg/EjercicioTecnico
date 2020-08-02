@@ -20,9 +20,6 @@ pipeline {
     }
 
     stage('Restore nuget') {
-      environment {
-        PATH = '/Library/Frameworks/Mono.framework/Versions/Current/Commands:$PATH '
-      }
       steps {
         sh '$PATH/nuget restore'
       }
