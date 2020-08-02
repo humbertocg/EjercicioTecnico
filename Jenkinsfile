@@ -5,7 +5,7 @@ pipeline {
       agent any
       environment {
         PROJECT_NAME = 'EjercicioTecnico'
-        PATH_Build = '/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+        PATH = '/Library/Frameworks/Mono.framework/Versions/Current/Commands:$PATH '
         APK_NAME = 'EjercicioTecnico'
         ANDROID_HOME = '/Users/humbertocg/Library/Developer/Xamarin/android-sdk-macosx'
         KEYSTORE_FILE = '/Users/humbertocg/cubesmart.keystore'
@@ -21,7 +21,7 @@ pipeline {
 
     stage('Restore nuget') {
       steps {
-        sh '$PATH_Build/nuget restore'
+        sh '$PATH/nuget restore'
       }
     }
 
