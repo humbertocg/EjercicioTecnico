@@ -1,13 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Set environment variables') {
-      agent any
-      steps {
-        echo 'set params'
-      }
-    }
-
     stage('Restore nuget') {
       steps {
         sh '$PATH_build/nuget restore'
