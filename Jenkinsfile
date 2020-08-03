@@ -29,8 +29,8 @@ msbuild ${PROJECT_NAME}.sln /t:${PROJECT_NAME}_Android /p:Configuration="Release
 
     stage('signing android') {
       steps {
-        sh '''jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore $KEYSTORE_FILE -storepass $STORE_PASS -signedjar $SIGNED_APK $INPUT_APK $KEYSTORE_ALIAS  
-$ANDROID_HOME/build-tools/29.0.2/zipalign -f -v 4 $SIGNED_APK $FINAL_APK'''
+        sh '''jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore $KEYSTORE_FILE -storepass $STORE_PASS -signedjar ${SIGNED_APK} ${INPUT_APK} $KEYSTORE_ALIAS  
+${ANDROID_HOME}/build-tools/29.0.2/zipalign -f -v 4 ${SIGNED_APK} ${FINAL_APK}'''
       }
     }
 
