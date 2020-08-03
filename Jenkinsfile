@@ -45,5 +45,6 @@ $ANDROID_HOME/build-tools/29.0.2/zipalign -f -v 4 $SIGNED_APK $FINAL_APK'''
     INPUT_APK = '$WORKSPACE/${PROJECT_NAME}.Android/bin/Release/com.unosquare.${APK_NAME}.apk'
     SIGNED_APK = '$WORKSPACE/${PROJECT_NAME}.Android/bin/Release/com.unosquare.${APK_NAME}-signed.apk'
     FINAL_APK = '$WORKSPACE/Builds/${APK_NAME}-Release.apk'
+    STORE_PASS = 'cubesmart'
   }
 }
