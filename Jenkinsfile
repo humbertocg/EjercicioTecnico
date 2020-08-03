@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('Restore nuget') {
       steps {
-        sh '''def msbuild = tool name: \'msbuild\'
-${msbuild}/nuget restore'''
+        sh '''export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
+nuget restore'''
       }
     }
 
