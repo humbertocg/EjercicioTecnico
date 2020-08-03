@@ -12,13 +12,15 @@ nuget restore'''
       parallel {
         stage('Build iOS') {
           steps {
-            sh 'msbuild ${PROJECT_NAME}.sln /t:${PROJECT_NAME}_iOS /p:Configuration="Release" /p:BuildIpa=true /p:Platform="iPhone" /p:IpaPackageDir="$WORKSPACE/Builds" '
+            sh '''export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
+msbuild ${PROJECT_NAME}.sln /t:${PROJECT_NAME}_iOS /p:Configuration="Release" /p:BuildIpa=true /p:Platform="iPhone" /p:IpaPackageDir="$WORKSPACE/Builds" '''
           }
         }
 
         stage('Build Android') {
           steps {
-            sh 'msbuild ${PROJECT_NAME}.sln /t:${PROJECT_NAME}_Android /p:Configuration="Release" /p:AndroidBuildApplicationPackage=true'
+            sh '''export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
+msbuild ${PROJECT_NAME}.sln /t:${PROJECT_NAME}_Android /p:Configuration="Release" /p:AndroidBuildApplicationPackage=true'''
           }
         }
 
