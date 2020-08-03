@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Restore nuget') {
       steps {
-        sh '''def msbuild = tool name: \'MSBuild\'
+        sh '''def msbuild = tool name: \'msbuild\'
 ${msbuild}/nuget restore'''
       }
     }
