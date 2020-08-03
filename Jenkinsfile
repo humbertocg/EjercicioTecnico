@@ -33,7 +33,7 @@ $ANDROID_HOME/build-tools/29.0.2/zipalign -f -v 4 $SIGNED_APK $FINAL_APK'''
 
   }
   environment {
-    PATH = '/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    PATH = '/Library/Frameworks/Mono.framework/Versions/Current/Commands+$PATH'
     PROJECT_NAME = 'EjercicioTecnico'
     APK_NAME = 'EjercicioTecnico'
     ANDROID_HOME = '/Users/humbertocg/Library/Developer/Xamarin/android-sdk-macosx'
