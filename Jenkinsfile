@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Restore nuget') {
       steps {
-        sh '$PATH_build/nuget restore'
+        sh 'nuget restore'
       }
     }
 
