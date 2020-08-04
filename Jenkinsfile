@@ -40,7 +40,7 @@ ${ANDROID_HOME}/build-tools/29.0.2/zipalign -f -v 4 $WORKSPACE/${PROJECT_NAME}.A
     PROJECT_NAME = 'EjercicioTecnico'
     APK_NAME = 'EjercicioTecnico'
     ANDROID_HOME = '~/Library/Developer/Xamarin/android-sdk-macosx'
-    KEYSTORE_FILE = '~/cubesmart.keystore'
+    KEYSTORE_FILE = '/users/humbertocg/cubesmart.keystore'
     KEYSTORE_ALIAS = 'cubesmart'
     INPUT_APK = '${WORKSPACE}/${PROJECT_NAME}.Android/bin/Release/com.unosquare.${APK_NAME}.apk'
     SIGNED_APK = '${WORKSPACE}/${PROJECT_NAME}.Android/bin/Release/com.unosquare.${APK_NAME}-signed.apk'
