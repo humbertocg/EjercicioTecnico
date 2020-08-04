@@ -19,6 +19,7 @@ namespace Core.ServiceConsumer
             carList.Add(new CarItem { Brand = "Chevrolet", Line = "Spark", Year = "2015" });
             carList.Add(new CarItem { Brand = "Chevrolet", Line = "avep", Year = "2019" });
             carList.Add(new CarItem { Brand = "Chevrolet", Line = "test", Year = "2020" });
+            carList.Add(new CarItem { Brand = "Chevrolet", Line = "test", Year = "2020" });
             return carList;
         }
     }
